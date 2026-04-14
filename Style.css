@@ -1,148 +1,191 @@
 :root {
-/*colores principales*/
 
---primary-color: #2c3e50 ;
---secondary-color: #3498db ;
---accent-color: #e74c3c ;
---warning-color: #f39c12 ;
+    /* colores Principales */
+    --primary-color: #1E293B;
+    --secondary-color: #3B82F6;
+    --accent-color: #e74c3c;
+    --success-color: #27AE60;
+    --warning-family: 'Arial, sans-serif';
 
-/*colores de texto*/
---text-primary: #2c3e50;
---text-secondary: #7f8c8d;
+    /* Colores de Texto */
+--text-primary: #0F172A;
+--text-secondary: #64748B;
 --text-light: #95a5a6;
-/*colores de fondo*/
+
+/* Colores de Fondo */
 --bg-primary: #ffffff;
 --bg-secondary: #f8f9fa;
 --bg-dark: #34495e;
-/*espaciado*/
+
+/* Espaciado */
 --spacing-xs: 5px;
 --spacing-sm: 10px;
 --spacing-md: 20px;
 --spacing-lg: 30px;
 --spacing-xl: 40px;
- 
-/*bordes*/
---border-radius: 8px;
---border-color: #e1e8ed;
 
-/* sombras*/
+/* Bordes */
+--border-radius: 8px;
+--border-color: #E2E8F0;
+
+/* Sombras */
 --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
 --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
 --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
 
-/* transiciones*/
+/* Transiciones */
 --transition-fast: 0.2s ease;
 --transition-normal: 0.3s ease;
 --transition-slow: 0.5s ease;
 
-/* reset y configuracion base*/
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
-body{
+/* =========================================
+   RESET Y CONFIGURACIÓN BASE
+========================================= */
 
-    font-family: 'Arial', sans-serif;
-    background-color: var(--bg-secondary);
-    color:var(--text-primary);
-    line-height: 1.6;
-}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0;
-    position: fixed;
-    top: 0;
-    left:0;
-    right: 0;
-    z-index: 1000;
-    box-shadow: var(--shadow-md);
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  line-height: 1.6;
 }
 
-.header-content{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--spacing-md);
+/* ============================
+   HEADER PRINCIPAL
+   ============================ */
+
+.header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-md);
+}
+
+.header-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%; /* Cambiado para que ocupe todo el ancho como en la imagen */
+  padding: 0 20px; /* Cambiado: quitamos el error del padding */
+
 }
 
-.logo{
+.logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--secondary-color);
 }
 
-.user-info{
+.user-info {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
 }
-.username{
+
+.user-name {
     font-size: 0.9rem;
 }
 
-.user-avatar{
+.user-avatar {
     width: 40px;
     height: 40px;
     background-color: var(--secondary-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
     font-size: 0.8rem;
 }
 
-.main-container{
+.main-container {
     margin-top: 70px;
     display: flex;
     min-height: calc(100vh - 70px);
 }
 
+/* =========================================
+   SIDEBAR NAVEGACIÓN
+   ========================================= */
 .sidebar {
     width: 250px;
     background-color: var(--bg-dark);
     position: fixed;
     left: 0;
-    top: 70px;
+    top: 80px;
     bottom: 0;
     overflow-y: auto;
     transition: transform var(--transition-normal);
 }
 
-.nav.list{
+.nav-list {
     list-style: none;
 }
-.nav-item{
+
+.nav-item {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.nav-link{
-    display: flex;
+.nav-link {
+   display: flex;
     align-items: center;
     padding: var(--spacing-md);
-    color: #ecfef1;
+    color: #ecf0f1;
     text-decoration: none;
     transition: all var(--transition-normal);
+    gap: 15px; /* <--- Agrega esta línea para separar el icono del texto */
 }
 
-.nav-link:hover{
+.nav-item:hover{
     background-color: rgba(255, 255, 255, 0.1);
-    transform: translateX(10px);
+    transform: translateX(5px);
 }
-
-/*CONTENIDO PRINCIPAL*/
-.main-content{
+.main-content {
     margin-left: 250px;
     flex: 1;
     padding: var(--spacing-lg);
 }
 
-.content-header{
+.content-header {
     margin-bottom: var(--spacing-lg);
+}
+
+.page-title {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.page-description {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/*Tarjetas*/
+.stats-grid {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); /* Esto crea 3 columnas iguales */
+    gap: var(--spacing-md); /* Espacio entre tarjetas */
+    margin-top: var(--spacing-md);
+}
+
+.stat-card {
+    background-color: var(--bg-primary);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    display: flex; /* Alinea icono e info de lado a lado */
+    align-items: center;
+    gap: 15px;
 }
